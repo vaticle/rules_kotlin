@@ -112,7 +112,8 @@ class KotlinJvmTaskExecutor @Inject internal constructor(
             "-api-version", info.toolchainInfo.common.apiVersion,
             "-language-version", info.toolchainInfo.common.languageVersion,
             "-jvm-target", info.toolchainInfo.jvm.jvmTarget,
-            "-Xfriend-paths=${friendPaths.joinToString(X_FRIENDS_PATH_SEPARATOR)}"
+            "-Xfriend-paths=${friendPaths.joinToString(X_FRIENDS_PATH_SEPARATOR)}",
+            "-Xplugin=/Users/aw/Downloads/compiler-hosted-1.0.0-alpha2.jar"
         )
         args
             .addAll("-module-name", info.moduleName)
