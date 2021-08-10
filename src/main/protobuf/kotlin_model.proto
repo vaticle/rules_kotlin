@@ -78,8 +78,6 @@ message CompilationTaskInfo {
     // trace: enables trace logging.
     // timings: causes timing information to be printed at the of an action.
     repeated string debug = 9;
-    // Plugin used by kotlinc with the -Xplugin flag.
-    string plugin = 10;
 }
 
 // Mested messages not marked with stable could be refactored.

@@ -34,7 +34,13 @@ def _init_builder_args(ctx, rule_kind, module_name):
     args.add("--kotlin_jvm_target", toolchain.jvm_target)
     args.add("--kotlin_api_version", toolchain.api_version)
     args.add("--kotlin_language_version", toolchain.language_version)
-    args.add("--kotlin_passthrough_flags", "-Xuse-experimental=kotlin.Experimental")
+
+    passthrough_flags = "-Xuse-experimental=kotlin.Experimental"
+
+    if ctx.files.kotlin_compiler_plugin:
+        passthrough_flags = passthrough_flags + " " + "-Xplugin=" + ctx.files.kotlin_compiler_plugin[0].path
+
+    args.add("--kotlin_passthrough_flags", passthrough_flags)
 
     debug = depset(toolchain.debug)
     for tag in ctx.attr.tags:

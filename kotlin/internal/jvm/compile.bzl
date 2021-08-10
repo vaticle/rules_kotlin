@@ -189,9 +189,6 @@ def kt_jvm_compile_action(ctx, rule_kind, output_jar):
     args.add("--kotlin_output_srcjar", ctx.outputs.srcjar)
 
     args.add("--kotlin_friend_paths", "\n".join(friend_paths.to_list()))
-    
-    if ctx.files.kotlin_compiler_plugin:
-        args.add("--kotlin_plugin", ctx.files.kotlin_compiler_plugin[0].path)
 
     args.add_all("--classpath", compile_jars)
     args.add_all("--sources", srcs.all_srcs, omit_if_empty = True)

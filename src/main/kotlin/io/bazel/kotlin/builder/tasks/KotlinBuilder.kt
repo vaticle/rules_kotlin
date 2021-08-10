@@ -129,7 +129,6 @@ class KotlinBuilder @Inject internal constructor(
         JS_PASSTHROUGH_FLAGS("--kotlin_js_passthrough_flags"),
         JS_LIBRARIES("--kotlin_js_libraries"),
         DEBUG("--kotlin_debug_tags"),
-        PLUGIN("--kotlin_plugin"),
         TASK_ID("--kotlin_task_id");
     }
 
@@ -152,7 +151,6 @@ class KotlinBuilder @Inject internal constructor(
             }
             passthroughFlags = argMap.optionalSingle(KotlinBuilderFlags.PASSTHROUGH_FLAGS)
             argMap.optional(KotlinBuilderFlags.FRIEND_PATHS)?.let(::addAllFriendPaths)
-            plugin = argMap.optionalSingle(KotlinBuilderFlags.PLUGIN)
             toolchainInfoBuilder.commonBuilder.apiVersion = argMap.mandatorySingle(KotlinBuilderFlags.API_VERSION)
             toolchainInfoBuilder.commonBuilder.languageVersion = argMap.mandatorySingle(KotlinBuilderFlags.LANGUAGE_VERSION)
             this

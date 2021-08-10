@@ -114,7 +114,6 @@ class KotlinJvmTaskExecutor @Inject internal constructor(
             "-jvm-target", info.toolchainInfo.jvm.jvmTarget,
             "-Xfriend-paths=${friendPaths.joinToString(X_FRIENDS_PATH_SEPARATOR)}",
         )
-        info.plugin?.takeIf { it.isNotBlank() }?.also { args.addAll("-Xplugin", info.plugin) }
         args
             .addAll("-module-name", info.moduleName)
             .addAll("-d", directories.classes)
