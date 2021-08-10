@@ -191,6 +191,11 @@ _common_attr = utils.add_dicts(
         `some_package_path-label_name`.""",
             mandatory = False,
         ),
+        "kotlin_compiler_plugin": attr.label(
+            doc = "The Kotlin compiler plugin to use.",
+            allow_single_file = True,
+            mandatory = False,
+        ),
     },
 )
 
