@@ -183,7 +183,6 @@ def kt_jvm_compile_action(ctx, rule_kind, output_jar):
     args.add("--sourcegendir", sourcegen_directory.path)
     args.add("--tempdir", temp_directory.path)
     args.add("--kotlin_generated_classdir", generated_classes_directory.path)
-    args.add("--kotlin_passthrough_flags", "-Xuse-ir")
 
     args.add("--output", output_jar)
     args.add("--kotlin_output_jdeps", ctx.outputs.jdeps)
