@@ -1,9 +1,26 @@
 [![Build Status](https://badge.buildkite.com/a8860e94a7378491ce8f50480e3605b49eb2558cfa851bbf9b.svg)](https://buildkite.com/bazel/kotlin-postsubmit)
 
-# Bazel Kotlin Rules
+# Bazel Kotlin Rules (with modifications by Vaticle)
 
 Current release: ***`legacy-1.3.0-rc3`***<br />
 Main branch: `master`
+
+### Modifications by Vaticle
+
+- We added support for Kotlin 1.5.
+- We added the ability to pass a plugin file to the Kotlin compiler. `kotlin_jvm_library` and `kotlin_jvm_binary` have been enhanced with an additional optional parameter, `kotlin_compiler_plugin`. A single `File` should be passed to it (see example usage below).
+
+#### Example usage
+
+```python
+kt_jvm_binary(
+    name = "main",
+    srcs = ["main.kt"],
+    main_class = "com.vaticle.MainKt",
+    kotlin_compiler_plugin = "@org_jetbrains_compose_compiler//file",
+    deps = ["@maven//:org_jetbrains_compose_desktop_desktop_jvm_1_0_0_alpha3"],
+)
+```
 
 # News!
 * <b>Dec 6, 2019.</b> Released version [1.3.0-rc3](https://github.com/bazelbuild/rules_kotlin/releases/tag/legacy-1.3.0-rc3).
