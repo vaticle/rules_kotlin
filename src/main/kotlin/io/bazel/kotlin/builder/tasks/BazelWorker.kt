@@ -118,7 +118,6 @@ class BazelWorker(
             System.setOut(realStdOut)
             System.setErr(realStdErr)
         }
-        throw RuntimeException("drop through")
     }
 
     private fun loadArguments(args: List<String>, isWorker: Boolean): List<String> {
